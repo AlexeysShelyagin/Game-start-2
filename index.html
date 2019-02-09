@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+
+        var i = 0;
+
+        function move_square () {
+          i += 1;
+          console.log(i);
+          var game_object = $("<div>", {
+            "class" : "square",
+            "id" : "1_" + i,
+            "style" : " margin-top: " + getRandomInt(0, 600) + "px; margin-left: " + getRandomInt(0,1200) + "px; "
+          }).html(i);
+
+          function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+          }
+
+
+          $("body").append(game_object);
+
+          setTimeout(move_square, 1000);
+        }
+
+        move_square();
+      })
+    </script>
+
+    <style media="screen">
+      body{
+        margin: 0px;
+        background: #2F2F2F;
+      }
+      .square{
+        width: 100px;
+        height: 100px;
+        border: solid black;
+        position: absolute;
+        background: #EDE6E3;
+        border-color: #EDE6E3;
+        border-radius: 5px;
+        font-family: 'Major Mono Display', monospace;
+        font-size: 200%;
+        font-weight: bold;
+        box-shadow: 0 0 10px #EDE6E3;
+      }
+    </style>
+  </head>
+  <body>
+
+  </body>
+</html>
